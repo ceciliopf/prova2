@@ -1,0 +1,62 @@
+#cabecalho {
+    width: 100%; /* Define a largura desejada para o cabeçalho */
+    margin: 0 auto; /* Define margens automáticas para centralizar horizontalmente */
+    background-color: darkcyan;
+    text-align: center;
+}
+
+footer{
+    text-align: center;
+    background-color: rgb(140, 195, 224);
+    padding: 5px;
+    margin-top: 5px;
+}
+footer h1{
+    margin-top: -5px;
+
+}
+.botao {
+    
+    color: black; 
+    cursor: pointer;
+    margin: 5px;
+}
+.containerBotao {
+    text-align: center;
+}
+
+.botao:active {
+    background-color: green; 
+    color: black; 
+}
+.questao2{
+    outline: none; /* Remove a borda de foco */
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%; /* Largura da tabela */
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+#divResolucoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#textoQuestao2{
+    outline: none; /* Remove a borda de foco */
+    display: flex;
+    justify-content: center;
+}
+

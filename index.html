@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Prova de Linguagem de Script para Web</title><head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css"/>
+        </head>
+        <body>
+         <div>
+        <header id="cabecalho">
+        <h1>Primeira Avaliação</h1>
+         <h2>Linguagem de Script para Web</h2>
+         <h3>Prof Ernani Viriato de Melo</h3>
+         <h3>Aluno: Felipe Pinto Cecilio</h3>
+        </header>
+     </div>
+    <style>
+        .button {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .button.active {
+            background-color: green;
+            color: white;
+        }
+        #divResolucao {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function criptografarCesar(textarea, shift) {
+            const text = textarea.value;
+            let result = '';
+            for (let i = 0; i < text.length; i++) {
+                const charCode = text.charCodeAt(i);
+                // Verifica se o caractere é uma letra maiúscula
+                if (charCode >= 65 && charCode <= 90) {
+                    result += String.fromCharCode(((charCode - 65 + shift) % 26) + 65);
+                }
+                // Verifica se o caractere é uma letra minúscula
+                else if (charCode >= 97 && charCode <= 122) {
+                    result += String.fromCharCode(((charCode - 97 + shift) % 26) + 97);
+                }
+                // Se não for letra, mantém o caractere
+                else {
+                    result += text.charAt(i);
+                }
+            }
+            var divResolucao = document.getElementById('DivResolucao');
+            divResolucao.innerHTML = result;
+            highlightButton('botaoQuestao2');
+        }
+
+        function gerarNomeCompleto(nome) {
+            const partes = nome.split(' ');
+            if (partes.length > 1) {
+                return partes[0] + ' ' + partes[partes.length - 1];
+            }
+            return nome;
+        }
+
+        function mostrarNome() {
+            const nome = document.getElementById('inputNome').value;
+            const resultado = gerarNomeCompleto(nome);
+            document.getElementById('resultadoQuestao3').value = resultado;
+            highlightButton('botaoQuestao3');
+        }
+
+        function highlightButton(buttonId) {
+            document.getElementById('botaoQuestao1').classList.remove('active');
+            document.getElementById('botaoQuestao2').classList.remove('active');
+            document.getElementById('botaoQuestao3').classList.remove('active');
+            document.getElementById(buttonId).classList.add('active');
+        }
+        function questao1(){
+            highlightButton('botaoQuestao1');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Prova de Linguagem de Script para Web</h1>
+    </header>
+    <main>
+        <button id="botaoQuestao1" class="button" onclick="questao1()">Questão 1</button>
+        <button id="botaoQuestao2" class="button" onclick="criptografarCesar(document.getElementById('textoQuestao2'), 3)">Questão 2</button>
+        <button id="botaoQuestao3" class="button" onclick="mostrarNome()">Questão 3</button>
+        <div>
+            <div id="divResolucao">
+                <label for="textoQuestao2">Texto para Criptografar (Questão 2):</label>
+                <textarea id="textoQuestao2" rows="4" cols="50"></textarea>
+                <textarea id="resultadoQuestao2" rows="4" cols="50" readonly></textarea>
+            </div>
+            <div>
+                <label for="inputNome">Nome Completo (Questão 3):</label>
+                <input type="text" id="inputNome" placeholder="Digite o nome completo">
+                <textarea id="resultadoQuestao3" rows="1" cols="50" readonly></textarea>
+            </div>
+        </div>
+    </main>
+    <footer> 
+     <div class="footer">
+       <h1><img src="iftm.png" alt="logo do Campus"></h1>
+       <h2>Análise e Desenvolvimento de Sistemas</h2>
+       <h3>Campus Uberaba Parque Tecnológico</h3>
+       </div>
+    </footer>
+        
+</body>
+</html>
